@@ -14,7 +14,7 @@ const Hero = () => {
       </p>
 
       {/* Call to Action Button with Reduced Size */}
-      <div className="mt-6 px-3 py-2 bg-secondary text-dark font-semibold rounded-md shadow-lg cursor-pointer transform transition-transform duration-500 hover:scale-110 hover:bg-light hover:text-dark">
+      <div className="mt-6 px-3 py-2 bg-green-500 text-dark font-semibold rounded-md shadow-lg cursor-pointer transform transition-transform duration-500 hover:scale-110 hover:bg-light hover:text-dark">
         Explore the Marketplace
       </div>
     </section>
