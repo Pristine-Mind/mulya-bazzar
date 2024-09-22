@@ -1,20 +1,51 @@
-"use client"; // For interactive client-side rendering
+"use client";
+import Image from "next/image";
+import logo from "../public/logo.png";
+
 const Navbar = () => {
   return (
-    <header className="text-black shadow-md">
-      <div className="container mx-auto p-4 flex justify-between items-center">
-        {/* Logo and Brand Name */}
+    <header className="text-black shadow-md sticky top-0 bg-white z-50">
+      <div className="w-[90%] mx-auto p-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <h1 className="text-3xl font-bold">Mulya Bazzar</h1>
+          <a href="/" onClick={() => window.location.reload()}>
+            <Image src={logo} alt="Mulya Bazzar Logo" className="h-10 w-auto" />
+          </a>
         </div>
 
-        {/* Navigation Menu */}
         <nav>
-          <ul className="flex space-x-4">
-            <li><a href="#home" className="hover:text-secondary">Home</a></li>
-            <li><a href="#about" className="hover:text-secondary">About Us</a></li>
-            <li><a href="#features" className="hover:text-secondary">Features</a></li>
-            <li><a href="#contact" className="hover:text-secondary">Contact Us</a></li>
+          <ul className="flex space-x-6">
+            <li>
+              <a
+                href="#home"
+                className="hover:text-secondary transition-colors duration-300 text-xl font-semibold py-2 px-4"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="#about"
+                className="hover:text-secondary transition-colors duration-300 text-xl font-semibold py-2 px-4"
+              >
+                About Us
+              </a>
+            </li>
+            <li>
+              <a
+                href="#features"
+                className="hover:text-secondary transition-colors duration-300 text-xl font-semibold py-2 px-4"
+              >
+                Features
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="hover:text-secondary transition-colors duration-300 text-xl font-semibold py-2 px-4"
+              >
+                Contact Us
+              </a>
+            </li>
           </ul>
         </nav>
       </div>

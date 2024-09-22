@@ -25,3 +25,36 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes connect {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes path {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+  100% {
+    stroke-dasharray: 100 0;
+  }
+}
+
+.animate-connect {
+  animation: connect 5s ease-in-out infinite;
+}
+
+.animate-path {
+  stroke-dasharray: 100 100;
+  animation: path 3s ease-in-out infinite;
+}
+
+
+
