@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     title: "Mulya Bazzar",
     description: "Empowering Buyers, Connecting Markets",
     url: "https://pristine-mind.github.io/mulya-bazzar/",
-    site_name: "Mulya Bazzar",
+    siteName: "Mulya Bazzar",
     images: [
       {
-        url: "/public/iconslogo.png",
+        url: "/public/logo.png",
         width: 800,
         height: 600,
         alt: "Mulya Bazzar Logo",

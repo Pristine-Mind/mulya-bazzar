@@ -62,7 +62,6 @@ const Hero = () => {
           />
         </svg>
       </div>
-
       <h1
         className={`text-4xl font-extrabold text-secondary mb-4 transform transition duration-700 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
