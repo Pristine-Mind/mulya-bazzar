@@ -78,7 +78,7 @@ const Hero = () => {
       </p>
 
       <a
-        href="#marketplace"
+        href="http://15.206.117.68:3000/"
         className="relative z-10 mt-6 px-3 py-2 bg-green-500 text-dark font-semibold rounded-md shadow-lg cursor-pointer transform transition-transform duration-500 hover:scale-110 hover:bg-light hover:text-dark"
       >
         Explore the Marketplace
