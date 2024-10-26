@@ -25,22 +25,23 @@ const Navbar = () => {
       {/* Modal for Launch Announcement */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50 animate-fadeIn">
-          <div className="relative bg-white p-8 rounded-lg shadow-xl max-w-md mx-auto transform transition-transform duration-500 ease-in-out scale-95 animate-slideInUp">
-            <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-green-500 text-center mb-6 animate-pulse">
+          <div className="relative bg-white p-10 rounded-2xl shadow-2xl max-w-lg mx-auto transform transition-transform duration-700 ease-in-out scale-100 animate-slideInUp border-2 border-gray-200">
+            <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 text-center mb-8 animate-pulse">
               Coming Soon!
             </h2>
-            <p className="text-center mb-6 text-gray-700">
-              Stay tuned for something amazing!
+            <p className="text-lg text-center mb-8 text-gray-600 leading-relaxed">
+              Stay tuned for something amazing! We're working hard to bring you an incredible experience.
             </p>
             <button
               onClick={closeModal}
-              className="block w-full bg-gradient-to-r from-purple-500 to-yellow-500 text-white py-3 rounded-lg hover:from-purple-600 hover:to-yellow-600 transition-all duration-300 transform hover:scale-105"
+              className="block w-full bg-gradient-to-r from-purple-600 via-red-400 to-yellow-500 text-white py-3 rounded-full shadow-md hover:shadow-xl hover:from-purple-700 hover:via-red-500 hover:to-yellow-600 transition-all duration-500 transform hover:scale-105"
             >
               Close
             </button>
           </div>
         </div>
-      )}
+      )
+      }
 
       <header className="text-black shadow-md sticky top-0 bg-white z-50">
         <div className="w-[90%] mx-auto p-2 flex justify-between items-center">

@@ -39,7 +39,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center lg:text-right">
-          <p>Developed by <a href="https://pristine-minds.com" target="_blank" className="text-blue-400 hover:underline">Pristine Minds Nepal</a></p>
+          <p>
+            &copy; {new Date().getFullYear()} Developed by{' '}
+            <a href="https://pristine-minds.com" target="_blank" className="text-blue-400 hover:underline">
+              Pristine Minds Nepal
+            </a>
+          </p>
         </div>
       </div>
     </footer>

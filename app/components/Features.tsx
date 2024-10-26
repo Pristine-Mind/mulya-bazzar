@@ -11,7 +11,7 @@ const Features = () => {
   }, []);
 
   return (
-    <section id="features" className="py-16 bg-emerald-500 text-gray-900">
+    <section id="features" className="py-16 text-gray-900" style={{ backgroundColor: '#ffbd59' }}>
       <h1 className="text-4xl font-bold mb-6 text-center">
         Features
       </h1>
@@ -29,7 +29,7 @@ const Features = () => {
           />
           <h3 className="text-xl font-bold mb-2">Wide Variety of Products</h3>
           <p className="text-gray-700">
-            Find a wide variety of products at the best prices.
+          Discover an extensive selection of products at unbeatable prices, carefully curated to meet all your needs. Shop now and enjoy great deals on quality items across a wide range of categories.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ const Features = () => {
           />
           <h3 className="text-xl font-bold mb-2">Secure Payments</h3>
           <p className="text-gray-700">
-            Shop with confidence using our secure payment options.
+          Shop with confidence knowing that your transactions are protected by our secure payment options. We prioritize your privacy and security, ensuring a safe and seamless shopping experience every time.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ const Features = () => {
           />
           <h3 className="text-xl font-bold mb-2">Fast Delivery</h3>
           <p className="text-gray-700">
-            Receive your products quickly and on time.
+          Receive your products swiftly and reliably with our fast and on-time delivery service. We work hard to ensure your orders arrive exactly when you need them, making your shopping experience seamless and stress-free.
           </p>
         </div>
       </div>

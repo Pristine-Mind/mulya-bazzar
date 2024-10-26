@@ -50,7 +50,7 @@ const Contact = () => {
             required
           />
           <button
-            className="flex-shrink-0 bg-green-200 hover:bg-green-300 text-sm text-gray-800 font-bold py-2 px-4 rounded transform transition-transform duration-500 hover:scale-105"
+            className="flex-shrink-0 text-sm text-gray-800 font-bold py-2 px-4 rounded transform transition-transform duration-500 hover:scale-105" style={{ backgroundColor: '#ffbd59' }}
             type="submit"
           >
             Register

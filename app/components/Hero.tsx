@@ -79,10 +79,12 @@ const Hero = () => {
 
       <a
         href=""
-        className="relative z-10 mt-6 px-3 py-2 bg-green-500 text-dark font-semibold rounded-md shadow-lg cursor-pointer transform transition-transform duration-500 hover:scale-110 hover:bg-light hover:text-dark"
+        className="relative z-10 mt-6 px-3 py-2 text-dark font-semibold rounded-md shadow-lg cursor-pointer transform transition-transform duration-500 hover:scale-110 hover:bg-light hover:text-dark"
+        style={{ backgroundColor: '#dd620d' }}
       >
         Explore the Marketplace
       </a>
+
     </section>
   );
 };
