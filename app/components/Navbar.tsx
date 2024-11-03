@@ -6,7 +6,7 @@ import logo from "../public/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showModal, setShowModal] = useState(true);
+  // const [showModal, setShowModal] = useState(true);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -16,14 +16,14 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
-  const closeModal = () => {
-    setShowModal(false);
-  };
+  // const closeModal = () => {
+  //   setShowModal(false);
+  // };
 
   return (
     <>
       {/* Modal for Launch Announcement */}
-      {showModal && (
+      {/* {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50 animate-fadeIn">
           <div className="relative bg-white p-10 rounded-2xl shadow-2xl max-w-lg mx-auto transform transition-transform duration-700 ease-in-out scale-100 animate-slideInUp border-2 border-gray-200">
             <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 text-center mb-8 animate-pulse">
@@ -41,7 +41,7 @@ const Navbar = () => {
           </div>
         </div>
       )
-      }
+      } */}
 
       <header className="text-black shadow-md sticky top-0 bg-white z-50">
         <div className="w-[90%] mx-auto p-2 flex justify-between items-center">
