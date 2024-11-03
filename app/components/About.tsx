@@ -11,7 +11,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="py-16 bg-dark text-light">
+    <section id="about" className="py-16 bg-gray-100 text-gray-900">
       <div className="container mx-auto px-4">
         <h2
           className={`text-4xl font-bold mb-6 text-center transform transition duration-700 ${
