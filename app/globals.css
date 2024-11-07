@@ -76,3 +76,22 @@ body {
 }
 
 
+.circlePath {
+  fill: none;
+  stroke: #e0e0e0;
+  stroke-width: 4;
+}
+
+.activeStep {
+  fill: #000;
+  font-weight: bold;
+}
+
+.inactiveStep {
+  fill: #888;
+}
+
+.pointer {
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  transition: transform 0.3s ease;
+}

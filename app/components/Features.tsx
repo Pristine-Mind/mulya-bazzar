@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { FaGavel, FaLock, FaBell, FaTruckLoading } from 'react-icons/fa';
 
 const Features = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,7 +20,7 @@ const Features = () => {
 
     setHoverEffect((prevHoverEffect) => ({
       ...prevHoverEffect,
-      [index]: { x, y, scale: 1.05 },
+      [index]: { x, y, scale: 1.08 },
     }));
   };
 
@@ -33,47 +34,90 @@ const Features = () => {
   return (
     <section
       id="features"
-      className="py-16 text-gray-900"
-      style={{ backgroundColor: "#ffbd59" }}
+      className="py-20 text-gray-900"
+      style={{ backgroundColor: "#F7F7F9" }}
     >
-      <h1 className="text-4xl font-bold mb-6 text-center">Features</h1>
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {["Wide Variety of Products", "Secure Payments", "Fast Delivery"].map(
-          (feature, index) => (
-            <div
-              key={feature}
-              className={`feature-box text-center bg-white p-6 rounded-lg shadow-lg transition-all duration-700 ${
-                isVisible ? "animate-circular-appear" : "opacity-0 scale-0 rotate-45"
-              }`}
-              style={{
-                animationDelay: `${index * 200}ms`,
-                transform: hoverEffect[index]
-                  ? `translate(${hoverEffect[index].x}px, ${hoverEffect[index].y}px) scale(${hoverEffect[index].scale})`
-                  : "scale(1)",
-                transition: "transform 0.2s ease-out",
-              }}
-              onMouseMove={(e) => handleMouseMove(e, index)}
-              onMouseLeave={() => handleMouseLeave(index)}
-            >
-              <img
-                src={`public/images/icon${index + 1}.svg`}
-                alt={feature}
-                className="mx-auto mb-4 w-16 h-16 transform transition-transform duration-500"
-                loading="lazy"
-              />
-              <h3 className="text-xl font-bold mb-2">{feature}</h3>
-              <p className="text-gray-700">
-                {index === 0 &&
-                  "Discover an extensive selection of products at unbeatable prices, carefully curated to meet all your needs. Shop now and enjoy great deals on quality items across a wide range of categories."}
-                {index === 1 &&
-                  "Shop with confidence knowing that your transactions are protected by our secure payment options. We prioritize your privacy and security, ensuring a safe and seamless shopping experience every time."}
-                {index === 2 &&
-                  "Receive your products swiftly and reliably with our fast and on-time delivery service. We work hard to ensure your orders arrive exactly when you need them, making your shopping experience seamless and stress-free."}
-              </p>
+      <h1 className="text-5xl font-extrabold mb-12 text-center text-purple-800">
+        Features
+      </h1>
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Bid Management System",
+            description:
+              "Manage bids effectively with a streamlined system that ensures transparency and fairness throughout the bidding process.",
+            icon: <FaGavel size={48} color="white" />,
+            backgroundColor: "#c76706",
+            sizeClass: "lg:col-span-1",
+          },
+          {
+            title: "Escrow Payment Service",
+            description:
+              "Secure transactions with our integrated escrow payment service, providing trust and safety for buyers and sellers.",
+            icon: <FaLock size={64} color="white" />,
+            backgroundColor: "#3898ec",
+            sizeClass: "lg:col-span-2",
+          },
+          {
+            title: "Notification System",
+            description:
+              "Stay informed with real-time notifications, keeping you updated on all important events and activities.",
+            icon: <FaBell size={48} color="white" />,
+            backgroundColor: "#22b573",
+            sizeClass: "lg:col-span-1",
+          },
+          {
+            title: "Supply Chain Dashboard",
+            description:
+              "Get a comprehensive view of your supply chain operations with our intuitive dashboard, designed to enhance efficiency and decision-making.",
+            icon: <FaTruckLoading size={64} color="white" />,
+            backgroundColor: "#fdce76",
+            sizeClass: "lg:col-span-2",
+          },
+        ].map((feature, index) => (
+          <div
+            key={feature.title}
+            className={`feature-box text-center p-8 rounded-xl shadow-xl transition-all duration-700 ease-in-out transform hover:shadow-2xl ${
+              isVisible ? "animate-fade-in" : "opacity-0 translate-y-12"
+            } ${feature.sizeClass}`}
+            style={{
+              animationDelay: `${index * 200}ms`,
+              transform: hoverEffect[index]
+                ? `translate(${hoverEffect[index].x}px, ${hoverEffect[index].y}px) scale(${hoverEffect[index].scale})`
+                : "scale(1)",
+              transition: "transform 0.2s ease-out",
+              backgroundColor: feature.backgroundColor,
+            }}
+            onMouseMove={(e) => handleMouseMove(e, index)}
+            onMouseLeave={() => handleMouseLeave(index)}
+          >
+            <div className="flex justify-center items-center mb-6 w-16 h-16 rounded-full" style={{ backgroundColor: feature.backgroundColor }}>
+              {feature.icon}
             </div>
-          )
-        )}
+            <h3 className="text-2xl font-semibold mb-4 text-black">
+              {feature.title}
+            </h3>
+            <p className="text-gray-600 leading-relaxed">
+              {feature.description}
+            </p>
+          </div>
+        ))}
       </div>
+      <style jsx>{`
+        @keyframes fade-in {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in {
+          animation: fade-in 1s ease-in-out forwards;
+        }
+      `}</style>
     </section>
   );
 };
