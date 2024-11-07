@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaUser } from "react-icons/fa";
 
 const DiscipleMakingProcess = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [lastClicked, setLastClicked] = useState(null); // Track last clicked button
+  const [lastClicked, setLastClicked] = useState(null);
 
   const steps = [
     { title: "Supplier Partnership", description: "Building strong relationships with suppliers for a seamless supply chain." },
@@ -25,23 +25,36 @@ const DiscipleMakingProcess = () => {
     setLastClicked("prev");
   };
 
+  const getCoordinates = (index) => {
+    const angle = (2 * Math.PI * index) / steps.length;
+    const x = 120 + 100 * Math.cos(angle);
+    const y = 120 + 100 * Math.sin(angle);
+    return { x, y };
+  };
+
+  const { x, y } = getCoordinates(currentStep);
+
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center py-16 px-4 relative min-h-[70vh] bg-gradient-to-br from-blue-300 to-light-blue text-center" >
+    <section className="flex flex-col md:flex-row items-center justify-center py-16 px-4 relative min-h-[70vh] bg-gradient-to-br from-blue-300 to-light-blue text-center">
       <div className="flex-1 flex flex-col items-center relative mb-8 md:mb-0">
         <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-[35rem] md:h-[35rem] relative flex items-center justify-center">
           <svg viewBox="0 0 240 240" className="w-full h-full">
+            <defs>
+              <linearGradient id="torchlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: "rgba(0, 0, 0, 0.8)", stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: "rgba(0, 0, 0, 0)", stopOpacity: 0 }} />
+              </linearGradient>
+            </defs>
             <circle
               cx="120"
               cy="120"
               r="100"
               fill="none"
               stroke="#926AA6"
-              stroke-width="4"
+              strokeWidth="4"
             />
             {steps.map((step, index) => {
-              const angle = (2 * Math.PI * index) / steps.length;
-              const x = 120 + 100 * Math.cos(angle);
-              const y = 120 + 100 * Math.sin(angle);
+              const { x, y } = getCoordinates(index);
               return (
                 <text
                   key={index}
@@ -51,12 +64,27 @@ const DiscipleMakingProcess = () => {
                   fill={index === currentStep ? "#000" : "#888"}
                   fontWeight={index === currentStep ? "bold" : "normal"}
                   fontSize="6"
+                  textLength="50"
+                  lengthAdjust="spacingAndGlyphs"
+                  filter={index === currentStep ? "url(#spotlight)" : "none"}
                 >
                   {step.title}
                 </text>
               );
             })}
+            {/* Torchlight projection */}
+            <polygon
+              points={`120,120 ${x - 10},${y - 10} ${x + 10},${y + 10}`}
+              fill="url(#torchlight)"
+              className="animate-torchlight"
+            />
           </svg>
+          {/* Actor in the center */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white text-xl">
+              <FaUser />
+            </div>
+          </div>
         </div>
       </div>
       <div className="flex-1 text-center md:text-left md:pl-8">
@@ -86,6 +114,19 @@ const DiscipleMakingProcess = () => {
           </button>
         </div>
       </div>
+      <style jsx>{`
+        @keyframes torchlightAnimation {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+        .animate-torchlight {
+          animation: torchlightAnimation 1s forwards;
+        }
+      `}</style>
     </section>
   );
 };
