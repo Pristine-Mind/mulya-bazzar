@@ -15,6 +15,8 @@ const DiscipleMakingProcess = () => {
     { title: "Customer Satisfaction", description: "Focusing on customer feedback and satisfaction to improve service quality." },
   ];
 
+  const colors = ["#4178BE", "#3AB89C", "#C7851C", "#D4C317", "#3232CC"];
+
   const handleNext = () => {
     setCurrentStep((prev) => (prev + 1) % steps.length);
     setLastClicked("next");
@@ -27,32 +29,19 @@ const DiscipleMakingProcess = () => {
 
   const getCoordinates = (index) => {
     const angle = (2 * Math.PI * index) / steps.length;
-    const x = 120 + 100 * Math.cos(angle);
-    const y = 120 + 100 * Math.sin(angle);
+    const radius = 140; // Increased radius to spread items further apart
+    const x = 140 + radius * Math.cos(angle);
+    const y = 140 + radius * Math.sin(angle);
     return { x, y };
   };
 
   const { x, y } = getCoordinates(currentStep);
 
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center py-16 px-4 relative min-h-[70vh] bg-gradient-to-br from-blue-300 to-light-blue text-center">
-      <div className="flex-1 flex flex-col items-center relative mb-8 md:mb-0">
-        <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-[35rem] md:h-[35rem] relative flex items-center justify-center">
-          <svg viewBox="0 0 240 240" className="w-full h-full">
-            <defs>
-              <linearGradient id="torchlight" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: "rgba(0, 0, 0, 0.8)", stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: "rgba(0, 0, 0, 0)", stopOpacity: 0 }} />
-              </linearGradient>
-            </defs>
-            <circle
-              cx="120"
-              cy="120"
-              r="100"
-              fill="none"
-              stroke="#926AA6"
-              strokeWidth="4"
-            />
+    <section className="flex flex-col md:flex-row items-center justify-center py-8 px-4 relative min-h-[70vh] bg-gradient-to-br from-blue-300 to-light-blue text-center overflow-visible">
+      <div className="flex-1 flex flex-col items-center relative mb-8 md:mb-0 overflow-visible">
+        <div className="w-80 h-80 sm:w-80 sm:h-80 md:w-[35rem] md:h-[35rem] relative flex items-center justify-center overflow-visible">
+          <svg viewBox="0 0 280 280" className="w-full h-full overflow-visible">
             {steps.map((step, index) => {
               const { x, y } = getCoordinates(index);
               return (
@@ -60,30 +49,28 @@ const DiscipleMakingProcess = () => {
                   key={index}
                   x={x}
                   y={y}
+                  dy="0.35em"
                   textAnchor="middle"
                   fill={index === currentStep ? "#000" : "#888"}
                   fontWeight={index === currentStep ? "bold" : "normal"}
-                  fontSize="6"
-                  textLength="50"
-                  lengthAdjust="spacingAndGlyphs"
-                  filter={index === currentStep ? "url(#spotlight)" : "none"}
+                  fontSize="6" // Reduced font size for better spacing
+                  className={index === currentStep ? "animate-pulse" : ""}
                 >
                   {step.title}
                 </text>
               );
             })}
-            {/* Torchlight projection */}
-            <polygon
-              points={`120,120 ${x - 10},${y - 10} ${x + 10},${y + 10}`}
-              fill="url(#torchlight)"
-              className="animate-torchlight"
-            />
           </svg>
-          {/* Actor in the center */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white text-xl">
-              <FaUser />
-            </div>
+          <div
+            className="absolute w-40 h-40 rounded-full flex flex-col items-center justify-center text-white text-xl transition-transform duration-500 z-10"
+            style={{
+              transform: `translate(${x - 140}px, ${y - 140}px)`,
+              backgroundColor: colors[currentStep],
+              padding: '10px',
+            }}
+          >
+            <FaUser />
+            <span className="mt-2 text-sm font-bold">{steps[currentStep].title}</span>
           </div>
         </div>
       </div>
@@ -115,16 +102,18 @@ const DiscipleMakingProcess = () => {
         </div>
       </div>
       <style jsx>{`
-        @keyframes torchlightAnimation {
-          0% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
+        .animate-pulse {
+          animation: textPulse 1.5s ease-in-out infinite;
         }
-        .animate-torchlight {
-          animation: torchlightAnimation 1s forwards;
+        @keyframes textPulse {
+          0%, 100% {
+            transform: scale(1);
+            fill-opacity: 1;
+          }
+          50% {
+            transform: scale(1.1);
+            fill-opacity: 0.6;
+          }
         }
       `}</style>
     </section>

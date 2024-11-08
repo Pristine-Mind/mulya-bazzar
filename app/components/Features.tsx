@@ -37,7 +37,7 @@ const Features = () => {
       className="py-20 text-gray-900"
       style={{ backgroundColor: "#F7F7F9" }}
     >
-      <h1 className="text-5xl font-extrabold mb-12 text-center text-purple-800">
+      <h1 className="text-5xl font-extrabold mb-12 text-center text-black">
         Features
       </h1>
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
