@@ -6,16 +6,16 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => setIsVisible(true), 300);
-    return () => clearTimeout(timeoutId);
+    const timeout = setTimeout(() => setIsVisible(true), 300);
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
     <section
       id="home"
-      className="relative flex flex-col justify-center items-center min-h-[70vh] bg-gradient-to-br from-blue-100 to-light-blue text-center px-4"
+      className="relative flex flex-col justify-center items-center min-h-[70vh] text-center px-4 overflow-hidden bg-white"
     >
-      <div className="absolute inset-0 w-full h-full opacity-30 z-0">
+      <div className="absolute inset-0 w-full h-full opacity-60 z-10 pointer-events-none">
         <svg
           viewBox="0 0 1000 400"
           className="w-full h-full animate-connect"
@@ -62,29 +62,30 @@ const Hero = () => {
           />
         </svg>
       </div>
-      <h1
-        className={`text-4xl font-extrabold text-secondary mb-4 transform transition duration-700 ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-        }`}
-      >
-        Mulya Bazzar
-      </h1>
-      <p
-        className={`text-lg text-dark max-w-lg mb-4 transform transition-opacity duration-1000 ease-in-out ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        Empowering Buyers, Connecting Markets
-      </p>
 
-      <a
-        href=""
-        className="relative z-10 mt-6 px-3 py-2 text-dark font-semibold rounded-md shadow-lg cursor-pointer transform transition-transform duration-500 hover:scale-110 hover:bg-light hover:text-dark"
-        style={{ backgroundColor: '#dd620d' }}
-      >
-        Explore the Marketplace
-      </a>
-
+      <div className="relative z-20 max-w-2xl">
+        <h1
+          className={`text-4xl md:text-3xl lg:text-2xl font-extrabold text-black mb-5 transform transition duration-700 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+        >
+          Discover Quality Products at <span className="text-orange">Mulya Bazzar</span>
+        </h1>
+        <p
+          className={`text-base md:text-lg text-black/90 mb-6 transform transition-opacity duration-1000 ease-in-out ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          Explore our curated collection of high-quality items, from fashion to home
+          essentials. Find everything you need in one place.
+        </p>
+        <a
+          href="/shop"
+          className="inline-block bg-orange hover:bg-yellow text-white hover:text-black font-semibold py-3 px-6 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105"
+        >
+          Shop Now
+        </a>
+      </div>
     </section>
   );
 };

@@ -1,123 +1,109 @@
 "use client";
 
-import { useState } from "react";
-import { FaArrowLeft, FaArrowRight, FaUser } from "react-icons/fa";
+import {
+  FaHandshake,
+  FaBoxOpen,
+  FaBoxes,
+  FaTruck,
+  FaSmile,
+} from "react-icons/fa";
 
-const DiscipleMakingProcess = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [lastClicked, setLastClicked] = useState(null);
+const supplySteps = [
+  {
+    icon: FaHandshake,
+    title: "Supplier Partnership",
+    desc: "We carefully select suppliers who meet our quality standards.",
+  },
+  {
+    icon: FaBoxOpen,
+    title: "Inventory Management",
+    desc: "We maintain optimal stock levels to ensure product availability.",
+  },
+  {
+    icon: FaBoxes,
+    title: "Order Fulfillment",
+    desc: "Orders are processed swiftly and accurately.",
+  },
+  {
+    icon: FaTruck,
+    title: "Logistics & Delivery",
+    desc: "We partner with reliable carriers for timely delivery.",
+  },
+  {
+    icon: FaSmile,
+    title: "Customer Satisfaction",
+    desc: "We strive to exceed customer expectations at every step.",
+  },
+];
 
-  const steps = [
-    { title: "Supplier Partnership", description: "Building strong relationships with suppliers for a seamless supply chain." },
-    { title: "Inventory Management", description: "Ensuring optimal inventory levels to meet demand without overstocking." },
-    { title: "Order Fulfillment", description: "Efficiently managing customer orders to provide a smooth buying experience." },
-    { title: "Logistics & Delivery", description: "Coordinating logistics to ensure timely and accurate delivery." },
-    { title: "Customer Satisfaction", description: "Focusing on customer feedback and satisfaction to improve service quality." },
-  ];
+const OurSupplyChain = () => (
+  <section id="supply-chain" className="py-16 bg-white">
+    <div className="max-w-3xl mx-auto px-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+        Our Supply Chain
+      </h2>
 
-  const colors = ["#4178BE", "#3AB89C", "#C7851C", "#D4C317", "#3232CC"];
+      <div className="relative">
+        <div className="absolute left-5 top-0 bottom-0 w-px bg-gray-300" />
 
-  const handleNext = () => {
-    setCurrentStep((prev) => (prev + 1) % steps.length);
-    setLastClicked("next");
-  };
+        <ul className="space-y-10">
+          {supplySteps.map(({ icon: Icon, title, desc }, idx) => (
+            <li
+              key={idx}
+              className="
+                group relative flex items-start pl-12 py-4 
+                rounded-md 
+                hover:bg-gray-50 
+                transition-all duration-500 ease-in-out
+              "
+            >
+              <div
+                className="
+                  absolute left-0 mt-1 flex h-8 w-8 items-center justify-center 
+                  rounded-full bg-white ring-1 ring-gray-300 
+                  group-hover:ring-orange-400 
+                  group-hover:scale-110 
+                  transition-all duration-500 ease-in-out
+                  will-change-transform
+                "
+              >
+                <Icon
+                  className="
+                    h-5 w-5 text-gray-800 
+                    group-hover:text-orange-500 
+                    transition-colors duration-500 ease-in-out
+                  "
+                />
+              </div>
 
-  const handlePrev = () => {
-    setCurrentStep((prev) => (prev - 1 + steps.length) % steps.length);
-    setLastClicked("prev");
-  };
-
-  const getCoordinates = (index) => {
-    const angle = (2 * Math.PI * index) / steps.length;
-    const radius = 140; // Increased radius to spread items further apart
-    const x = 140 + radius * Math.cos(angle);
-    const y = 140 + radius * Math.sin(angle);
-    return { x, y };
-  };
-
-  const { x, y } = getCoordinates(currentStep);
-
-  return (
-    <section className="flex flex-col md:flex-row items-center justify-center py-8 px-4 relative min-h-[70vh] bg-gradient-to-br from-blue-300 to-light-blue text-center overflow-visible">
-      <div className="flex-1 flex flex-col items-center relative mb-8 md:mb-0 overflow-visible">
-        <div className="w-80 h-80 sm:w-80 sm:h-80 md:w-[35rem] md:h-[35rem] relative flex items-center justify-center overflow-visible">
-          <svg viewBox="0 0 280 280" className="w-full h-full overflow-visible">
-            {steps.map((step, index) => {
-              const { x, y } = getCoordinates(index);
-              return (
-                <text
-                  key={index}
-                  x={x}
-                  y={y}
-                  dy="0.35em"
-                  textAnchor="middle"
-                  fill={index === currentStep ? "#000" : "#888"}
-                  fontWeight={index === currentStep ? "bold" : "normal"}
-                  fontSize="6" // Reduced font size for better spacing
-                  className={index === currentStep ? "animate-pulse" : ""}
+              <div className="space-y-1">
+                <h3
+                  className="
+                    text-lg font-semibold text-gray-900 
+                    group-hover:text-gray-800 
+                    group-hover:translate-x-2 
+                    transition-all duration-500 ease-in-out
+                    will-change-transform
+                  "
                 >
-                  {step.title}
-                </text>
-              );
-            })}
-          </svg>
-          <div
-            className="absolute w-40 h-40 rounded-full flex flex-col items-center justify-center text-white text-xl transition-transform duration-500 z-10"
-            style={{
-              transform: `translate(${x - 140}px, ${y - 140}px)`,
-              backgroundColor: colors[currentStep],
-              padding: '10px',
-            }}
-          >
-            <FaUser />
-            <span className="mt-2 text-sm font-bold">{steps[currentStep].title}</span>
-          </div>
-        </div>
+                  {title}
+                </h3>
+                <p
+                  className="
+                    text-gray-600 
+                    group-hover:text-gray-700 
+                    transition-colors duration-500 ease-in-out
+                  "
+                >
+                  {desc}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="flex-1 text-center md:text-left md:pl-8">
-        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
-          Essential Steps in Supply Chain Excellence
-        </h2>
-        <h5 className="text-xl sm:text-2xl font-bold mb-3">{steps[currentStep].title}</h5>
-        <p className="text-md sm:text-lg text-gray-600 mb-6">
-          {steps[currentStep].description}
-        </p>
-        <div className="flex items-center justify-center md:justify-start space-x-4">
-          <button
-            onClick={handlePrev}
-            className={`p-2 sm:p-3 rounded-full transition duration-300 ${
-              lastClicked === "prev" ? "bg-blue-700 text-white" : "bg-blue-200 text-white hover:bg-blue-700"
-            }`}
-          >
-            <FaArrowLeft />
-          </button>
-          <button
-            onClick={handleNext}
-            className={`p-2 sm:p-3 rounded-full transition duration-300 ${
-              lastClicked === "next" ? "bg-blue-700 text-white" : "bg-blue-200 text-white hover:bg-blue-700"
-            }`}
-          >
-            <FaArrowRight />
-          </button>
-        </div>
-      </div>
-      <style jsx>{`
-        .animate-pulse {
-          animation: textPulse 1.5s ease-in-out infinite;
-        }
-        @keyframes textPulse {
-          0%, 100% {
-            transform: scale(1);
-            fill-opacity: 1;
-          }
-          50% {
-            transform: scale(1.1);
-            fill-opacity: 0.6;
-          }
-        }
-      `}</style>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
-export default DiscipleMakingProcess;
+export default OurSupplyChain;
