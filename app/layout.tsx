@@ -19,14 +19,18 @@ export const metadata: Metadata = {
   title: "Mulya Bazzar",
   description: "Empowering buyers, connecting markets in Nepal",
   keywords: "marketplace, Nepal, ecommerce, Mulya Bazzar, products, auctions",
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     title: "Mulya Bazzar",
     description: "Empowering Buyers, Connecting Markets",
-    url: "https://pristine-mind.github.io/mulya-bazzar/",
+    url: "https://mulyabazzar.com/",
     siteName: "Mulya Bazzar",
     images: [
       {
-        url: "/public/logo.png",
+        url: "/logo.png",
         width: 800,
         height: 600,
         alt: "Mulya Bazzar Logo",
@@ -51,6 +55,7 @@ export default function RootLayout({
         <head>
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <link rel="icon" href="logo.png" />
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           {children}

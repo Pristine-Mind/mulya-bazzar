@@ -68,7 +68,7 @@ const Navbar = () => {
               <Image 
                 src={logo} 
                 alt="Mulya Bazzar" 
-                className="h-16 w-auto"
+                className="h-20 w-auto"
                 width={120}
                 height={40}
                 priority
