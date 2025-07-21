@@ -42,7 +42,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative flex flex-col justify-center items-center min-h-screen text-center px-4 overflow-hidden bg-gradient-to-b from-white to-gray-50"
+      className="relative flex flex-col justify-center items-center min-h-[calc(100vh-4rem)] text-center px-4 pt-0 -mt-16 overflow-hidden bg-gradient-to-b from-white to-gray-50"
       ref={ref}
     >
       <div className="absolute inset-0 overflow-hidden">
