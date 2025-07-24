@@ -18,17 +18,15 @@ const Contact = () => {
 
     setIsSubmitting(true);
     setStatus({ type: null, message: '' });
-
     try {
       await emailjs.send(
-        "service_m3pq0kk",
-        "template_w5bysh8",
+        "service_zdl6w6j",
+        "template_84nmbpy",
         { 
           to_email: email,
           from_name: "Mulya Bazzar",
-          message: "Thank you for registering with Mulya Bazzar!"
         },
-        "42gma15X3fCcZ1vY-"
+        "VKQB6ni09wJ5aEPZ1"
       );
       
       setStatus({ 
@@ -88,7 +86,7 @@ const Contact = () => {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="block w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 sm:text-sm transition duration-200"
+                    className="block w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 sm:text-sm transition duration-200 text-black"
                     placeholder="you@example.com"
                     disabled={isSubmitting}
                   />
