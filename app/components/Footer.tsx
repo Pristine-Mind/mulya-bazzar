@@ -70,26 +70,30 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="border-t border-gray-200 bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-          <div className="space-y-4">
-            <div className="flex items-center">
-              <Image
-                src={logo}
-                alt="Mulya Bazzar"
-                className="h-14 w-auto"
-                width={100}
-                height={40}
-                priority
-              />
-              <span className="ml-3 text-2xl font-bold text-gray-900">Mulya Bazzar</span>
+    <footer className="border-t border-gray-200 bg-gradient-to-b from-gray-50 to-white">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="space-y-6">
+            <div className="flex items-center space-x-3">
+              <div className="flex-shrink-0">
+                <Image
+                  src={logo}
+                  alt="Mulya Bazzar"
+                  className="h-12 w-auto"
+                  width={48}
+                  height={48}
+                  priority
+                />
+              </div>
+              <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">
+                Mulya Bazzar
+              </span>
             </div>
-            <p className="text-sm text-gray-600">
-              Your trusted marketplace for quality products and great deals.
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Your trusted marketplace for quality products and great deals. Discover amazing products at competitive prices.
             </p>
             
-            <div className="flex gap-3 pt-2">
+            <div className="flex items-center space-x-4 pt-2">
               {socialLinks.map((link) => (
                 <SocialLink
                   key={link.href}
@@ -101,38 +105,14 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              {[
-                { name: 'Home', href: '/' },
-                { name: 'Products', href: '/products' },
-                { name: 'Categories', href: '/categories' },
-                { name: 'About Us', href: '/about' },
-                { name: 'Contact', href: '/contact' },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-gray-600 hover:text-orange-600 transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
+          <div className="space-y-6">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900 border-b border-gray-200 pb-2">
               Contact Us
             </h3>
             <div className="space-y-3">
               <ContactItem icon={MapPin}>
-                Gairidhara, Kathmandu Metropolitan City,<br />
-                Ward No 2, Bagmati, Nepal
+                Panipokhari, Kathmandu<br />
+                Bagmati, Nepal
               </ContactItem>
               <ContactItem icon={Phone}>
                 <a href="tel:+9779767474645" className="hover:text-orange-600 transition-colors">
@@ -147,8 +127,8 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
+          <div className="space-y-6">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900 border-b border-gray-200 pb-2">
               Download Our App
             </h3>
             <div className="space-y-3">
@@ -180,10 +160,23 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-200 pt-8">
-          <p className="text-center text-sm text-gray-500">
-            &copy; {currentYear} Mulya Bazzar. All rights reserved.
-          </p>
+        <div className="mt-16 border-t border-gray-200 pt-8">
+          <div className="flex flex-col items-center justify-between md:flex-row">
+            <p className="text-sm text-gray-500">
+              &copy; {currentYear} Mulya Bazzar. All rights reserved.
+            </p>
+            <div className="mt-4 flex space-x-6 md:mt-0">
+              <Link href="/privacy" className="text-sm text-gray-500 hover:text-orange-600 transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-sm text-gray-500 hover:text-orange-600 transition-colors">
+                Terms of Service
+              </Link>
+              <Link href="/contact" className="text-sm text-gray-500 hover:text-orange-600 transition-colors">
+                Contact Us
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
