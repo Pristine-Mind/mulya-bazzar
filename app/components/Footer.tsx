@@ -73,21 +73,18 @@ const Footer = () => {
     <footer className="border-t border-gray-200 bg-gradient-to-b from-gray-50 to-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-6">
+          <div className="space-y-2">
             <div className="flex items-center space-x-3">
               <div className="flex-shrink-0">
                 <Image
                   src={logo}
                   alt="Mulya Bazzar"
                   className="h-12 w-auto"
-                  width={48}
-                  height={48}
+                  width={200}
+                  height={200}
                   priority
                 />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">
-                Mulya Bazzar
-              </span>
             </div>
             <p className="text-sm text-gray-600 leading-relaxed">
               Your trusted marketplace for quality products and great deals. Discover amazing products at competitive prices.
@@ -120,8 +117,8 @@ const Footer = () => {
                 </a>
               </ContactItem>
               <ContactItem icon={Mail}>
-                <a href="mailto:info@mulyabazzar.com" className="hover:text-orange-600 transition-colors">
-                  info@mulyabazzar.com
+                <a href="mailto:mulyabazzar@gmail.com" className="hover:text-orange-600 transition-colors">
+                  mulyabazzar@gmail.com
                 </a>
               </ContactItem>
             </div>

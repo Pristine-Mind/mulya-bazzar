@@ -155,7 +155,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.div 
+      {/* <motion.div
         className="hidden lg:block absolute bottom-20 right-10 w-64 h-64 rounded-2xl bg-white shadow-2xl overflow-hidden border border-gray-100"
         animate={floatingAnimation}
       >
@@ -169,7 +169,7 @@ const Hero = () => {
             <p className="text-sm text-gray-500 mt-1">Best Sellers</p>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 };

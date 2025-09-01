@@ -108,8 +108,8 @@ const PrivacyPolicy = () => {
                             <Mail className="w-5 h-5 text-orange-600 mr-3 mt-0.5 flex-shrink-0" />
                             <div>
                               <h3 className="font-medium text-gray-900">Email:</h3>
-                              <a href="mailto:privacy@mulyabazzar.com" className="text-orange-600 hover:text-orange-700">
-                                privacy@mulyabazzar.com
+                              <a href="mailto:mulyabazzar@gmail.com" className="text-orange-600 hover:text-orange-700">
+                                mulyabazzar@gmail.com
                               </a>
                               <p className="mt-2 text-sm text-gray-500">
                                 We typically respond within 1-2 business days.
