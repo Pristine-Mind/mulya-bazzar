@@ -52,7 +52,7 @@ const TermsOfService = () => {
     },
     {
       title: '12. Contact Information',
-      content: 'For any questions about these Terms of Service, please contact us at support@mulyabazzar.com.'
+      content: 'For any questions about these Terms of Service, please contact us at mulyabazzar@gmail.com'
     }
   ];
 

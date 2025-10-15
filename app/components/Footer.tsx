@@ -130,7 +130,7 @@ const Footer = () => {
             </h3>
             <div className="space-y-3">
               <a
-                href="#"
+                href="https://play.google.com/store/apps/details?id=com.pristineminds.supply_chain_mobile"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
@@ -142,7 +142,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="#"
+                href="https://apps.apple.com/np/app/mulyabazar/id6749258559"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
